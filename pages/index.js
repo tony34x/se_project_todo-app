@@ -27,6 +27,9 @@ const validationConfig = {
   inputErrorClass: "popup__input_type_error",
   inactiveButtonClass: "button_disabled",
 };
+import { initialTodos, validationConfig } from "../utils/constants.js";
+
+
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
