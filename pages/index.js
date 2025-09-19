@@ -1,13 +1,11 @@
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
-console.log(initialTodos);
-console.log(validationConfig);
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
-// const todoTemplate = document.querySelector("#todo-template"); 
+// const todoTemplate = document.querySelector("#todo-template");
 const todosList = document.querySelector(".todos__list");
 
 const openModal = (modal) => {
@@ -22,9 +20,8 @@ const closeModal = (modal) => {
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   const todoElement = todo.getView();
-   return todoElement;
+  return todoElement;
 
-   
   // To be removed:
   // const todoElement = todoTemplate.content
   //   .querySelector(".todo")
@@ -41,7 +38,7 @@ const generateTodo = (data) => {
   // // Apply id and for attributes.
   // // The id will initially be undefined for new todos.
   // todoCheckboxEl.id = `todo-${data.id}`;
-  // todoLabel.setAttribute("for", `todo-${data.id}`); 
+  // todoLabel.setAttribute("for", `todo-${data.id}`);
 
   // // If a due date has been set, parsing this it with `new Date` will return a
   // // number. If so, we display a string version of the due date in the todo.
@@ -56,8 +53,6 @@ const generateTodo = (data) => {
   // todoDeleteBtn.addEventListener("click", () => {
   //   todoElement.remove();
   // });
-
- 
 };
 
 addTodoButton.addEventListener("click", () => {
