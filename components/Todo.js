@@ -56,5 +56,5 @@ class Todo {
     return this._todoElement;
   }
 }
-
+[]
 export default Todo;
