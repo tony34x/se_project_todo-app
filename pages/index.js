@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
-import formValidator from "../components/FormValidator.js";
+
 // instantiate
 
 const addTodoButton = document.querySelector(".button_action_add");
@@ -72,12 +72,10 @@ addTodoForm.addEventListener("submit", (evt) => {
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
 
-  
-
   // Create a date object and adjust for timezone
   const date = new Date(dateInput);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
- const id = uuidv4();
+  const id = uuidv4();
   const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
@@ -89,5 +87,5 @@ initialTodos.forEach((item) => {
   todosList.append(todo);
 });
 
-const newTodovalidater = new formValidator(validationConfig, addTodoForm);
+const newTodovalidater = new FormValidator(validationConfig, addTodoForm);
 newTodovalidater.enableValidation();
