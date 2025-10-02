@@ -26,5 +26,4 @@ CSS BEM methodology for maintainable styles
 ## Deployment
 
 This project is deployed on GitHub Pages:
-
-- ADD LINK HERE
+https://github.com/tony34x/se_project_todo-app
