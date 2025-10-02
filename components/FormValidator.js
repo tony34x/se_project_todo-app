@@ -9,7 +9,7 @@ class FormValidator {
     this._FormElement = FormElement;
     this._settings = settings;
   }
-  checkInputValidity(inputList) {
+  checkInputValidity(FormElement, inputElement, settings) {
     // ToDO -implement this method
     // copy body of existing function
   };
@@ -22,9 +22,6 @@ class FormValidator {
       this._settings.submitButtonSelector
     );
     console.log("FormElement");
-
-    // TODO finsh imlementing_setEventListeners
-    // Removed redeclaration of buttonElement
 
     this._togglebuttonState(this._inputList, buttonElement, this._settings);
 

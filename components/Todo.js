@@ -4,7 +4,6 @@ class Todo {
     this._templateElement = document.querySelector(selector);
   }
   _setEventListeners() {
-    // set up the delete button handler
     console.log(123);
     const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     todoDeleteBtn.addEventListener("click", () => {
