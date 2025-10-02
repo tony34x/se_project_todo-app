@@ -12,8 +12,7 @@ class FormValidator {
   checkInputValidity(inputList) {
     // ToDO -implement this method
     // copy body of existing function
-  }
-
+  };
   _setEventListeners() {
     this._inputList = Array.from(
       this._FormElement.querySelectorAll(this._inputSelector)
@@ -25,10 +24,7 @@ class FormValidator {
     console.log("FormElement");
 
     // TODO finsh imlementing_setEventListeners
-
-    // const buttonElement = formElement.querySelector(
-    //   settings.submitButtonSelector
-    // );
+    // Removed redeclaration of buttonElement
 
     this._togglebuttonState(this._inputList, buttonElement, this._settings);
 
@@ -38,7 +34,7 @@ class FormValidator {
         this._togglebuttonState(inputList, buttonElement, this._settings);
       });
     });
-  }
+  };
 
   enableValidation() {
   const FormElement = document.querySelector(this._FormSelector);
