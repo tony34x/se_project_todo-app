@@ -21,7 +21,7 @@ class FormValidator {
     const buttonElement = this._FormElement.querySelector(
       this._settings.submitButtonSelector
     );
-    console.log("FormElement");
+ 
 
     this._togglebuttonState(this._inputList, buttonElement, this._settings);
 
