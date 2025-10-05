@@ -4,16 +4,12 @@ class Todo {
     this._templateElement = document.querySelector(selector);
   }
   _setEventListeners() {
-    console.log(123);
     const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     todoDeleteBtn.addEventListener("click", () => {
-      this._todoElement.remove();
       this._data.completed = !this._data.completed;
-      console.log();
-      this._todoCheckboxEl.addEventListener("change", () => {});
     });
   }
-  _generateCheckboxEl() {
+   generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     this._todoCheckboxEl.addEventListener("change", () => {});
     this._todoLabel = this._todoElement.querySelector(".todo__label");

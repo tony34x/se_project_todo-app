@@ -1,15 +1,15 @@
 class FormValidator {
-  constructor(settings, FormElement) {
+  constructor(settings, formElement ) {
     this._inputSelector = settings.inputSelectorSelector;
     this._FormSelector = settings.formSelector;
-    this._submitButtonSelector = settings.submitebuttontSelector;
+    this._submitButtonSelector = settings.submitButtonSelector;
     this._errorClass = settings.errorClass;
     this._inputErrorClass = settings._inputErrorClass;
     this._inactiveButtonClass = settings._inactiveButtonClass;
-    this._FormElement = FormElement;
+    this._FormElement = formElement;
     this._settings = settings;
-  }
-  checkInputValidity(FormElement, inputElement, settings) {
+  };
+  checkInputValidity(formElement, inputElement, settings) {
     // ToDO -implement this method
     // copy body of existing function
   };
@@ -34,8 +34,8 @@ class FormValidator {
   };
 
   enableValidation() {
-  const FormElement = document.querySelector(this._FormSelector);
-    FormElement.addEventListener("submit", (evt) => {
+  const formElement = document.querySelector(this._FormSelector);
+    formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
     this._setEventListeners();
