@@ -26,7 +26,6 @@ const generateTodo = (data) => {
   const todoElement = todo.getView();
   return todoElement;
 
-  // To be removed:
   // const todoElement = todoTemplate.content
   //   .querySelector(".todo")
   //   .cloneNode(true);
@@ -68,6 +67,7 @@ addTodoCloseBtn.addEventListener("click", () => {
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
+  ormValidator.resetValidation();
   evt.preventDefault();
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
@@ -87,5 +87,5 @@ initialTodos.forEach((item) => {
   todosList.append(todo);
 });
 
-const newTodovalidater = new FormValidator(validationConfig, addTodoForm);
-newTodovalidater.enableValidation();
+const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
+newTodoValidator.enableValidation();
