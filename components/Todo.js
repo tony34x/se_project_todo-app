@@ -6,12 +6,11 @@ class Todo {
   _setEventListeners() {
     const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     todoDeleteBtn.addEventListener("click", () => {
-      this._data.completed = !this._data.completed;
+      this._todoElement.remove();
     });
   }
-   generateCheckboxEl() {
+  generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
-    this._todoCheckboxEl.addEventListener("change", () => {});
     this._todoLabel = this._todoElement.querySelector(".todo__label");
     this._todoCheckboxEl.checked = this._data.completed;
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
