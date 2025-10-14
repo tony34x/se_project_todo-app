@@ -1,14 +1,15 @@
 class FormValidator {
   constructor(settings, formElement) {
     this._inputSelector = settings.inputSelector;
-    this._submitButtonSelector = settings.submitButtonSelector;
+    this._submiteButtonSelector = settings.submitButtonSelector;
     this._errorClass = settings.errorClass;
     this._inputErrorClass = settings._inputErrorClass;
     this._inactiveButtonClass = settings._inactiveButtonClass;
     this._formElement = formElement;
     this._settings = settings;
   }
-  checkInputValidity(formElement, settings) {
+
+  _checkInputValidity(formElement, settings) {
     if (!formElement.validity.valid) {
       this._showInputError(formElement, settings)
     } else {
@@ -18,20 +19,29 @@ class FormValidator {
     // ToDO -implement this method
     // copy body of existing function
 
+  _showInputError() {
+
+  }
+
+  _hideInputError() {
+
+  }
+
   _setEventListeners() {
     this._inputList = Array.from(
       this._formElement.querySelectorAll(this._inputSelector)
     );
-    const buttonElement = this._formElement.querySelector(
+
+    this._buttonElement = this._formElement.querySelector(
       this._settings.submitButtonSelector
     );
 
-    this._togglebuttonState();
+    this._toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._togglebuttonState();
+        this._toggleButtonState();
       });
     });
   }
@@ -39,7 +49,12 @@ class FormValidator {
   _disableButton() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.disabled = true;
-  }  
+  }
+
+  _enableButton() {
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+    this._buttonElement.disabled = false;
+  }
 
   _toggleButtonState(){
     if(this._hasInvalidInput(this._inputList)) {
@@ -60,6 +75,9 @@ class FormValidator {
       evt.preventDefault();
     });
     this._setEventListeners();
+  }
+
+  resetValidation() {
   }
 }
 
