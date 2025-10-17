@@ -143,10 +143,10 @@
 
 @media screen and (max-width: 630px) {
   .popup {
-    align-items: flex-end;
+
   }
 
   .popup__content {
-    border-radius: 10px 10px 0 0;
+
   }
 }
