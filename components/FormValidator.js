@@ -11,21 +11,17 @@ class FormValidator {
 
   _checkInputValidity(formElement, settings) {
     if (!formElement.validity.valid) {
-      this._showInputError(formElement, settings)
+      this._showInputError(formElement, settings);
     } else {
-      this._hideInputError(formElement, settings)
+      this._hideInputError(formElement, settings);
     }
   }
-    // ToDO -implement this method
-    // copy body of existing function
+  // ToDO -implement this method
+  // copy body of existing function
 
-  _showInputError() {
+  _showInputError() {}
 
-  }
-
-  _hideInputError() {
-
-  }
+  _hideInputError() {}
 
   _setEventListeners() {
     this._inputList = Array.from(
@@ -56,15 +52,15 @@ class FormValidator {
     this._buttonElement.disabled = false;
   }
 
-  _toggleButtonState(){
-    if(this._hasInvalidInput(this._inputList)) {
+  _toggleButtonState() {
+    if (this._hasInvalidInput(this._inputList)) {
       this._disableButton();
     } else {
       this._enableButton();
     }
   }
 
-  _hasInvalidInput(){
+  _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
@@ -78,17 +74,8 @@ class FormValidator {
   }
 
   resetValidation() {
-   
-    const inputs = Array.from(
-      this._formElement.querySelectorAll(this._inputSelector)
-    );
-    inputs.forEach((input) => this._hideInputError(input));
-
-  
+    this._inputList.forEach((input) => this._hideInputError(input));
     this._formElement.reset();
-
-   
-    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
     this._disableButton();
   }
 }
