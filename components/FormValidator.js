@@ -11,17 +11,32 @@ class FormValidator {
 
   _checkInputValidity(formElement, settings) {
     if (!formElement.validity.valid) {
-      this._showInputError(formElement, settings);
+      this._showInputError(formElement, formElement.validationMessage);
     } else {
-      this._hideInputError(formElement, settings);
+      this._hideInputError(formElement, formElement.validationMessage);
     }
   }
   // ToDO -implement this method
   // copy body of existing function
 
-  _showInputError() {}
+  showInputError(inputElement, errorMessage) {
+    const errorElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
 
-  _hideInputError() {}
+    inputElement.classList.add(this._inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(this._errorClass);
+  }
+
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(
+      `#${inputElement.id}-error`
+    );
+    inputElement.classList.remove(this._inputErrorClass);
+    errorElement.textContent = "";
+    errorElement.classList.remove(this._errorClass);
+  }
 
   _setEventListeners() {
     this._inputList = Array.from(
