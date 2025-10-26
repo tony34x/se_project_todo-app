@@ -19,7 +19,7 @@ class FormValidator {
   // ToDO -implement this method
   // copy body of existing function
 
-  showInputError(inputElement, errorMessage) {
+ _showInputError(inputElement, errorMessage)  {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
