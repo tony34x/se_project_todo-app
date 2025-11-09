@@ -15,7 +15,11 @@ const todosList = document.querySelector(".todos__list");
 
 const section = new Section({
   items: [],
-  renderer: () => {},
+  renderer: () => {
+    // generate todo item
+    // add it to the todd list
+    // refer to the forEach loop in the file
+  },
   containerSelector: ".todos__list",
 });
 
@@ -61,13 +65,13 @@ addTodoForm.addEventListener("submit", (evt) => {
 
 const renderTodo = (item) => {
   const todo = generateTodo(item);
-  todosList.append(todo);
+  todosList.append(todo); // use addItem method instead
 };
 
-initialTodos.forEach((item) => {
-  renderTodo(item);
-  addTodoForm.reset();
-});
+// initialTodos.forEach((item) => {
+//   renderTodo(item);
+//   addTodoForm.reset(); // use addttem method instead 
+// });
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();

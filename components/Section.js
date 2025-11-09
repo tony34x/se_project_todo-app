@@ -7,8 +7,12 @@ class Section {
 
   renderItems() {
     this._items.array.forEach(item => {
+      // call the renderer and pass the item
       
     });
+
+    addItem(element) {
+      // add element to the container
   }
 }
 
