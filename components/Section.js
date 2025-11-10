@@ -13,7 +13,7 @@ class Section {
 
     addItem(element) {
       // add element to the container
-      
+      this
   }
 }
 
