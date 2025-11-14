@@ -10,6 +10,7 @@ class Section {
       this._renderer(item);
       this._container = document.querySelector(this._container);
       
+
     });
   }
 
