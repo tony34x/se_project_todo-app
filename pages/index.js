@@ -3,16 +3,20 @@ import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
+import popupwithForm from "../components/PopupwithForm.js";
 
 // instantiate
 
 const addTodoButton = document.querySelector(".button_action_add");
-const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
-const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
+const addTodoForm = document.querySelector("#add-todo-popup").querySelector(".popup__form");
+const addTodoCloseBtn = document.querySelector("#add-todo-popup").querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template");
 const todosList = document.querySelector(".todos__list");
 
+const addTodoPopup = new popupwithForm({
+  popupSelector: "#add-todo-popup", 
+  handleFormSubmit: () => {},
+});
 const section = new Section({
   items: [],
   renderer: () => {
