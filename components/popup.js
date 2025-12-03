@@ -8,7 +8,8 @@ class Popup {
     }
 
     close() {
-        // remove the visible class from the popup
+        // TODO remove the class from the popup element
+        console.log("Closing method called");
 }
 
 
