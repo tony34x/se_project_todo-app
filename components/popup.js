@@ -6,6 +6,10 @@ class Popup {
     open() {
     this._popupElement.classList.add("popup_visible");    
     }
+
+    close() {
+        // remove the visible class from the popup
 }
+
 
 export default Popup;
