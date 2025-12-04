@@ -47,7 +47,7 @@ addTodoButton.addEventListener("click", () => {
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
-  addTodobutton
+  addTodoPopup.close();
 });
 
 addTodoForm.addEventListener("submit", (evt) => {

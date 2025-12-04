@@ -14,8 +14,9 @@ class Popup {
   }
 
   setEventListeners() {
-    addTodocloseBtn.addEventListener("click", () => {
-    addTodoPopup.close();
+    
+    this._popupcloseBtn.addEventListener("click", () => {
+    this._popupElement.close();
     });
   }
 }
