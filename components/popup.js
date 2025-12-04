@@ -1,6 +1,7 @@
 class Popup {
   constructor(popupSelect) {
     this._popupElement = document.querySelector(popupSelect);
+    this._popupcloseBtn = this._popupElement.querySelector(".popup__close");
   }
 
   open() {
