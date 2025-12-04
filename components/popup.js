@@ -4,9 +4,13 @@ class Popup {
     this._popupcloseBtn = this._popupElement.querySelector(".popup__close");
   }
 
+ _handleEscapeClose() {
+    console.log (" key was pressed");
+ }
+
   open() {
     this._popupElement.classList.add("popup_visible");
-    document.addEventListener("keydown", handleEscapeClose);
+    document.addEventListener("keydown", this._handleEscapeClose);
   }
 
   close() {
