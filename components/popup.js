@@ -10,6 +10,7 @@ class Popup {
 
   close() {
     // TODO remove the class from the popup element
+    this._popupElement.classList.remove("popup_visible");
     console.log("Closing method called");
   }
 
