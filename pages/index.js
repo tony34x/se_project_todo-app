@@ -47,7 +47,7 @@ addTodoButton.addEventListener("click", () => {
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopup);
+  addTodobutton
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
