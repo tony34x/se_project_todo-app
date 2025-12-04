@@ -13,9 +13,9 @@ class Popup {
   }
 
   setEventListeners() {
-    // addTodocloseBtn.addEventListener("click", () => {
-    // addTodoPopup.close();
-    // });
+    addTodocloseBtn.addEventListener("click", () => {
+    addTodoPopup.close();
+    });
   }
 }
 
