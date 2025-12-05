@@ -8,13 +8,17 @@ import popupwithForm from "../components/PopupwithForm.js";
 // instantiate
 
 const addTodoButton = document.querySelector(".button_action_add");
-const addTodoForm = document.querySelector("#add-todo-popup").querySelector(".popup__form");
-const addTodoCloseBtn = document.querySelector("#add-todo-popup").querySelector(".popup__close");
+const addTodoForm = document
+  .querySelector("#add-todo-popup")
+  .querySelector(".popup__form");
+const addTodoCloseBtn = document
+  .querySelector("#add-todo-popup")
+  .querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template");
 const todosList = document.querySelector(".todos__list");
 
 const addTodoPopup = new popupwithForm({
-  popupSelector: "#add-todo-popup", 
+  popupSelector: "#add-todo-popup",
   handleFormSubmit: () => {},
 });
 const section = new Section({
@@ -48,6 +52,12 @@ function handleEscapeClose(event) {
   }
 }
 
+function handleEscapeClose(event) {
+  if (event.key === "Eascape") {
+    // find the currently open modal
+    // and close it
+  }
+}
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
@@ -81,7 +91,7 @@ const renderTodo = (item) => {
 
 // initialTodos.forEach((item) => {
 //   renderTodo(item);
-//   addTodoForm.reset(); // use addttem method instead 
+//   addTodoForm.reset(); // use addttem method instead
 // });
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
