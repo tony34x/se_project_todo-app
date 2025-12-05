@@ -15,12 +15,17 @@ const addTodoCloseBtn = document
   .querySelector("#add-todo-popup")
   .querySelector(".popup__close");
 // const todoTemplate = document.querySelector("#todo-template");
+
 const todosList = document.querySelector(".todos__list");
 
-const addTodoPopup = new popupwithForm({
-  popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {},
-});
+const addTodoPopup = new PopupwithForm(
+  "#add-todo-popup",  // string selector
+  () => {
+    console.log("Form submitted!");
+  }
+);
+
+
 const section = new Section({
   items: [],
   renderer: () => {
@@ -48,12 +53,10 @@ const generateTodo = (data) => {
 
 function handleEscapeClose(event) {
   if (event.key === "Escape") {
-  // find the currently open modal
+    // find the currently open modal
     // and close it
   }
 }
-
-
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
