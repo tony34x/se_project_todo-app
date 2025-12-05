@@ -48,15 +48,12 @@ const generateTodo = (data) => {
 
 function handleEscapeClose(event) {
   if (event.key === "Escape") {
-    // find the currently open modal
+  // find the currently open modal
+    // and close it
   }
 }
 
-function handleEscapeClose(event) {
-  if (event.key === "Eascape") {
-    // find the currently open modal
-    // and close it
-  }
+
 }
 
 addTodoButton.addEventListener("click", () => {
