@@ -1,7 +1,6 @@
 class Popup {
   constructor(popupSelector) {
-    // FIX: Use the popupSelector variable to select the element.
-    // Ensure that the value passed to popupSelector is a valid CSS selector (e.g., ".popup_type_edit" or "#my-popup").
+
     this._popupElement = document.querySelector(popupSelector);
     this._popupcloseBtn = this._popupElement.querySelector(".popup__close");
   }

@@ -1,4 +1,3 @@
-// popupwithForm.js
 import Popup from "./popup.js";
 
 class PopupwithForm extends Popup {
