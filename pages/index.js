@@ -54,7 +54,6 @@ function handleEscapeClose(event) {
 }
 
 
-}
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
