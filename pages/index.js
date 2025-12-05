@@ -21,22 +21,18 @@ const addTodoPopup = new PopupwithForm("#add-todo-popup", () => {
 });
 
 const section = new Section({
-  items: [],
-  renderer: () => {
-    // generate todo item
-    // add it to the todd list
-    // refer to the forEach loop in the file
+  items: initialTodos, // use your initial todos
+  renderer: (item) => {
+    const todoElement = generateTodo(item);
+    section.addItem(todoElement);
   },
   containerSelector: ".todos__list",
 });
 
+
 // const openModal = (modal) => {
 //   modal.classList.add("popup_visible");
 // };
-
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
 
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
