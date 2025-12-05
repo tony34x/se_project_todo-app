@@ -8,11 +8,11 @@ class Popup {
 
  // ... rest of your class code
 
-
- _handleEscapeClose() {
-    console.log (" key was pressed");
+ _handleEscapeClose(event) {
+    if (event.key === "Escape") {
+      this.close();
+    }
  }
-
   open() {
     this._popupElement.classList.add("popup_visible");
     document.addEventListener("keydown", this._handleEscapeClose);
