@@ -4,8 +4,7 @@ import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import popupwithForm from "../components/PopupwithForm.js";
-
-// instantiate
+import PopupwithForm from "../components/PopupwithForm.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoForm = document
@@ -18,13 +17,9 @@ const addTodoCloseBtn = document
 
 const todosList = document.querySelector(".todos__list");
 
-const addTodoPopup = new PopupwithForm(
-  "#add-todo-popup",  // string selector
-  () => {
-    console.log("Form submitted!");
-  }
-);
-
+const addTodoPopup = new PopupwithForm("#add-todo-popup", () => {
+  console.log("Form submitted!");
+});
 
 const section = new Section({
   items: [],
