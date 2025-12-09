@@ -4,8 +4,6 @@ class Popup {
     this._popupcloseBtn = this._popupElement.querySelector(".popup__close");
   }
 
-  // ... rest of your class code
-  // inside class body
   _handleEscapeClose = (event) => {
     if (event.key === "Escape") this.close();
   };
