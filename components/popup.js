@@ -17,12 +17,12 @@ class Popup {
     document.addEventListener("keydown", this._handleEscapeClose);
   }
 
-  close() {
-    // TODO remove the class from the popup element
-    this._popupElement.classList.remove("popup_visible");
-    console.log("Closing method called");
-    // TODO - remove the  Escape key listener
-  }
+close() {
+  this._popupElement.classList.remove("popup_visible");
+  // remove the escape-key listener that was added in open()
+  document.removeEventListener("keydown", this._handleEscapeClose);
+  console.log("Closing method called");
+}
 
   setEventListeners() {
     
