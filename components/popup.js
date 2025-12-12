@@ -24,7 +24,9 @@ class Popup {
     this._popupcloseBtn.addEventListener("click", () => {
       this.close();
     });
+
+    this._popupElement.addEventListener("mousedown", this.close); {
   }
 }
-
+}
 export default Popup;
