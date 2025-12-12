@@ -22,7 +22,6 @@ class Popup {
 
   setEventListeners() {
     this._popupcloseBtn.addEventListener("click", () => {
-      // FIX: Call the close method on the Popup instance, not the DOM element.
       this.close();
     });
   }
