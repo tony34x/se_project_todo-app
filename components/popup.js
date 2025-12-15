@@ -26,7 +26,7 @@ setEventListeners() {
   });
 
   this._popupElement.addEventListener("mousedown", (evt) => {
-    debugger;
+   
   });
 }
 }
