@@ -18,7 +18,7 @@ class Todo {
     const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     const todoLabel = this._todoElement.querySelector(".todo__label");
     const todoDate = this._todoElement.querySelector(".todo__date");
-    const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
+  
 
     todoNameEl.textContent = this._data.name;
     const dueDate = new Date(this._data.date);
