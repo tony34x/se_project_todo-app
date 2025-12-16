@@ -9,7 +9,7 @@ class Todo {
       this._todoElement.remove();
     });
   }
-  
+ 
   getView() {
     this._todoElement = this._templateElement.content
       .querySelector(".todo")
