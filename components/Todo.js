@@ -9,16 +9,16 @@ class Todo {
       this._todoElement.remove();
     });
   }
- 
+
   getView() {
     this._todoElement = this._templateElement.content
       .querySelector(".todo")
       .cloneNode(true);
     const todoNameEl = this._todoElement.querySelector(".todo__name");
-    const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
+    todoCheckboxEl.checked = !!this._data.completed;
     const todoLabel = this._todoElement.querySelector(".todo__label");
     const todoDate = this._todoElement.querySelector(".todo__date");
-  
+    const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
 
     todoNameEl.textContent = this._data.name;
     const dueDate = new Date(this._data.date);
