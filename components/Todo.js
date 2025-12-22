@@ -1,43 +1,36 @@
 class Todo {
-  constructor(data, selector) {
-    this._data = data;
-    this._templateElement = document.querySelector(selector);
+  constructor(data, templateSelector) {
+    this._name = data.name;
+    this._date = data.date;
+    this._id = data.id;
+
+    this._template = document
+      .querySelector(templateSelector)
+      .content.querySelector(".todo");
   }
   _setEventListeners() {
-    const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
-    todoDeleteBtn.addEventListener("click", () => {
-      this._todoElement.remove();
+    this._deleteBtn.addEventListener("click", () => {
+      this._element.remove();
     });
   }
 
   getView() {
-    this._todoElement = this._templateElement.content
-      .querySelector(".todo")
-      .cloneNode(true);
-    const todoNameEl = this._todoElement.querySelector(".todo__name");
-    todoCheckboxEl.checked = !!this._data.completed;
-    const todoLabel = this._todoElement.querySelector(".todo__label");
-    const todoDate = this._todoElement.querySelector(".todo__date");
-    const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
+    this._element = this._template.cloneNode(true);
 
-    todoNameEl.textContent = this._data.name;
-    const dueDate = new Date(this._data.date);
-    if (!isNaN(dueDate)) {
-      todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })}`;
-    } else {
-      todoDate.textContent = "";
+    this._checkbox = this._element.querySelector(".todo__completed");
+    this._nameEl = this._element.querySelector(".todo__name");
+    this._dateEl = this._element.querySelector(".todo__date");
+    this._deleteBtn = this._element.querySelector(".todo__delete-btn");
+
+    this._nameEl.textContent = this._name;
+
+    if (this._date) {
+      this._dateEl.textContent = this._date.toLocaleDateString();
     }
-
-    todoCheckboxEl.id = `todo-${this._data.id}`;
-    todoLabel.setAttribute("for", `todo-${this._data.id}`);
 
     this._setEventListeners();
 
-    return this._todoElement;
+    return this._element;
   }
 }
 
