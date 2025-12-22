@@ -12,8 +12,21 @@ const addTodoPopupElement = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopupElement.querySelector(".popup__form");
 
 // Instantiate popup
-const addTodoPopup = new PopupWithForm("#add-todo-popup", () => {
-  console.log("Form submitted!");
+const addTodoPopup = new PopupWithForm("#add-todo-popup", (formValues) => {
+  const { name, date } = formValues;
+
+  const parsedDate = date ? new Date(date) : null;
+  if (parsedDate) {
+    parsedDate.setMinutes(
+      parsedDate.getMinutes() + parsedDate.getTimezoneOffset()
+    );
+  }
+
+  const id = uuidv4();
+  const newItem = { name, date: parsedDate, id };
+
+  const todoElement = new Todo(newItem, "#todo-template").getView();
+  section.addItem(todoElement);
 });
 
 const section = new Section({
