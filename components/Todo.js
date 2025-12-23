@@ -1,16 +1,30 @@
 class Todo {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, {
+    handleDelete,
+    handleToggle
+  }) {
     this._name = data.name;
     this._date = data.date;
-    this._id = data.id;
+    this._completed = data.completed || false;
+
+    this._handleDelete = handleDelete;
+    this._handleToggle = handleToggle;
 
     this._template = document
       .querySelector(templateSelector)
-      .content.querySelector(".todo");
+      .content
+      .querySelector(".todo");
   }
+
   _setEventListeners() {
     this._deleteBtn.addEventListener("click", () => {
+      this._handleDelete(this._completed);
       this._element.remove();
+    });
+
+    this._checkbox.addEventListener("change", () => {
+      this._completed = this._checkbox.checked;
+      this._handleToggle(this._completed);
     });
   }
 
@@ -27,6 +41,8 @@ class Todo {
     if (this._date) {
       this._dateEl.textContent = this._date.toLocaleDateString();
     }
+
+    this._checkbox.checked = this._completed;
 
     this._setEventListeners();
 
