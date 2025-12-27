@@ -34,11 +34,6 @@ class PopupWithForm extends Popup {
     });
     return values;
   }
-  resetValidation() {
-    this._inputList.forEach((input) => this._hideInputError(input));
-    this._formElement.reset();
-    this._disableButton();
-  }
 
   close() {
     super.close();
