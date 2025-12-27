@@ -26,19 +26,24 @@ const section = new Section({
 
 // Popup
 const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
-  const date = new Date(values.date);
-  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+  let date = null;
+
+  if (values.date) {
+    date = new Date(values.date);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+  }
+
+  this._dateEl.textContent = this._date.toLocaleDateString();
 
   const newTodo = {
     id: uuidv4(),
     name: values.name,
-    date,
+    date, // null if not provided
     completed: false,
   };
 
   const todoElement = createTodo(newTodo);
   section.addItem(todoElement);
-
   todoCounter.updateTotal(true);
 });
 
@@ -60,7 +65,10 @@ function createTodo(data) {
     },
   }).getView();
 }
-
+addTodoButton.addEventListener("click", () => {
+  addTodoFormValidator.resetValidation();
+  addTodoPopup.open();
+});
 // Init
 section.renderItems();
 addTodoButton.addEventListener("click", () => addTodoPopup.open());

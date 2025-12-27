@@ -29,13 +29,17 @@ class PopupWithForm extends Popup {
   _getInputValues() {
     const inputs = Array.from(this._form.querySelectorAll("input"));
     const values = {};
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
       values[input.name] = input.value;
     });
     return values;
   }
+  resetValidation() {
+    this._inputList.forEach((input) => this._hideInputError(input));
+    this._formElement.reset();
+    this._disableButton();
+  }
 
-  // Optional: reset form after closing
   close() {
     super.close();
     this._form.reset();
