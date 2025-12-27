@@ -71,4 +71,4 @@ addTodoButton.addEventListener("click", () => {
 });
 // Init
 section.renderItems();
-addTodoButton.addEventListener("click", () => addTodoPopup.open());
+
