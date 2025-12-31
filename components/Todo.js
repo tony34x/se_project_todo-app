@@ -1,8 +1,6 @@
 class Todo {
-  constructor(data, templateSelector, {
-    handleDelete,
-    handleToggle
-  }) {
+  constructor(data, templateSelector, { handleDelete, handleToggle }) {
+    this._id = data.id; 
     this._name = data.name;
     this._date = data.date;
     this._completed = data.completed || false;
@@ -12,8 +10,7 @@ class Todo {
 
     this._template = document
       .querySelector(templateSelector)
-      .content
-      .querySelector(".todo");
+      .content.querySelector(".todo");
   }
 
   _setEventListeners() {
@@ -28,26 +25,31 @@ class Todo {
     });
   }
 
-  getView() {
-    this._element = this._template.cloneNode(true);
+ getView() {
+  this._element = this._template.cloneNode(true);
 
-    this._checkbox = this._element.querySelector(".todo__completed");
-    this._nameEl = this._element.querySelector(".todo__name");
-    this._dateEl = this._element.querySelector(".todo__date");
-    this._deleteBtn = this._element.querySelector(".todo__delete-btn");
+  this._checkbox = this._element.querySelector(".todo__completed");
+  this._label = this._element.querySelector(".todo__label");
+  this._nameEl = this._element.querySelector(".todo__name");
+  this._dateEl = this._element.querySelector(".todo__date");
+  this._deleteBtn = this._element.querySelector(".todo__delete-btn");
 
-    this._nameEl.textContent = this._name;
+  const checkboxId = `todo-${this._id}`;
+  this._checkbox.id = checkboxId;
+  this._label.setAttribute("for", checkboxId);
 
-    if (this._date) {
-      this._dateEl.textContent = this._date.toLocaleDateString();
-    }
+  this._nameEl.textContent = this._name;
 
-    this._checkbox.checked = this._completed;
-
-    this._setEventListeners();
-
-    return this._element;
+  if (this._date) {
+    this._dateEl.textContent = this._date.toLocaleDateString();
   }
+
+  this._checkbox.checked = this._completed;
+
+  this._setEventListeners();
+
+  return this._element;
+}
 }
 
 export default Todo;

@@ -33,7 +33,7 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
   }
 
-  this._dateEl.textContent = this._date.toLocaleDateString();
+ 
 
   const newTodo = {
     id: uuidv4(),
