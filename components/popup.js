@@ -20,14 +20,14 @@ class Popup {
     console.log("Closing method called");
   }
 
-setEventListeners() {
-  this._popupcloseBtn.addEventListener("click", () => {
-    this.close();
-  });
+  setEventListeners() {
+    this._popupcloseBtn.addEventListener("click", () => {
+      this.close();
+    });
 
-  this._popupElement.addEventListener("mousedown", (evt) => {
-   
-  });
-}
+    this._popupElement.addEventListener("mousedown", (evt) => {
+      this.close();
+    });
+  }
 }
 export default Popup;

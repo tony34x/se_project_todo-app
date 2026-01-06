@@ -9,7 +9,7 @@ import Section from "../components/Section.js";
 // DOM
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupElement = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopupElement.querySelector(".popup__form");
+const profileForm = document.forms["profile-form"];
 
 // Counter
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
@@ -18,8 +18,11 @@ const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    const todoElement = createTodo(item);
-    section.addItem(todoElement);
+  const renderTodo = (item) => {
+      const todoElement = createTodo(item);
+      section.addItem(todoElement);
+    };
+    renderTodo(item);
   },
   containerSelector: ".todos__list",
 });
@@ -33,6 +36,8 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
   }
 
+   addTodoFormValidator.resetValidation();
+
  
 
   const newTodo = {
@@ -41,10 +46,9 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
     date, // null if not provided
     completed: false,
   };
+  renderTodo(newTodo);  // just one line of code instead of the 2 lines
 
-  const todoElement = createTodo(newTodo);
-  section.addItem(todoElement);
-  todoCounter.updateTotal(true);
+  todoCounter.updateTotal(true)
 });
 
 // Validator
@@ -66,8 +70,8 @@ function createTodo(data) {
   }).getView();
 }
 addTodoButton.addEventListener("click", () => {
-  addTodoFormValidator.resetValidation();
   addTodoPopup.open();
+
 });
 // Init
 section.renderItems();

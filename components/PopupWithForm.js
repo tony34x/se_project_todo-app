@@ -11,6 +11,9 @@ class PopupWithForm extends Popup {
     // automatically add event listeners for close button and form submit
     this.setEventListeners();
   }
+  getForm() {
+    return this._form;
+  }
 
   // Override setEventListeners to include form submission
   setEventListeners() {
@@ -21,6 +24,7 @@ class PopupWithForm extends Popup {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
+       this._form.reset();
       this.close(); // close after submission
     });
   }
@@ -37,7 +41,6 @@ class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._form.reset();
   }
 }
 
