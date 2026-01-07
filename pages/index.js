@@ -10,6 +10,7 @@ import Section from "../components/Section.js";
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupElement = document.querySelector("#add-todo-popup");
 const profileForm = document.forms["profile-form"];
+const addTodoForm = document.forms["add-todo-form"];
 
 // Counter
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
@@ -37,6 +38,7 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
   }
 
    addTodoFormValidator.resetValidation();
+    
 
  
 
