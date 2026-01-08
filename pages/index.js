@@ -48,7 +48,7 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
     date, // null if not provided
     completed: false,
   };
-  renderTodo(newTodo);  // just one line of code instead of the 2 lines
+  section.addItem(createTodo(newTodo));
 
   todoCounter.updateTotal(true)
 });
