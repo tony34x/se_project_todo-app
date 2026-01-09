@@ -141,6 +141,11 @@
   margin-top: 20px;
 }
 
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
 @media screen and (max-width: 630px) {
   .popup {
   }

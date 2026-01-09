@@ -5,16 +5,12 @@ import TodoCounter from "../components/TodoCounter.js";
 import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
-import Popup from "./Popup.js"; // CASE SENSITIVE
-
 
 // DOM
 const addTodoButton = document.querySelector(".button_action_add");
-const addTodoPopupElement = document.querySelector("#add-todo-popup");
-const profileForm = document.forms["profile-form"];
-const addTodoForm = document.forms["add-todo-form"];
-
-
+const addTodoForm = document.querySelector(
+  "#add-todo-popup .popup__form"
+);
 
 // Counter
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
@@ -22,13 +18,7 @@ const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 // Section
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {
-  const renderTodo = (item) => {
-      const todoElement = createTodo(item);
-      section.addItem(todoElement);
-    };
-    renderTodo(item);
-  },
+  renderer: renderTodo,
   containerSelector: ".todos__list",
 });
 
@@ -41,6 +31,8 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
   }
 
+ 
+
   const newTodo = {
     id: uuidv4(),
     name: values.name,
@@ -49,18 +41,23 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (values) => {
   };
 
   renderTodo(newTodo);
-
   todoCounter.updateTotal(true);
-
-  addTodoFormValidator.resetValidation(); 
+  addTodoFormValidator.resetValidation();
 });
 
-
 // Validator
-const addTodoFormValidator = new FormValidator(validationConfig, addTodoForm);
+const addTodoFormValidator = new FormValidator(
+  validationConfig,
+  addTodoForm
+);
 addTodoFormValidator.enableValidation();
 
 // Helpers
+function renderTodo(item) {
+  const todoElement = createTodo(item);
+  section.addItem(todoElement);
+}
+
 function createTodo(data) {
   return new Todo(data, "#todo-template", {
     handleDelete: (wasCompleted) => {
@@ -74,10 +71,12 @@ function createTodo(data) {
     },
   }).getView();
 }
-addTodoButton.addEventListener("click", () => {
-  addTodoPopup.open();
 
+// Events
+addTodoButton.addEventListener("click", () => {
+  console.log("Open");
+  addTodoPopup.open();
 });
+
 // Init
 section.renderItems();
-
